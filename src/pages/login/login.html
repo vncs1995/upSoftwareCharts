@@ -15,10 +15,18 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-input placeholder="Email" type="email" clearInput></ion-input>
+    <ion-label>Email</ion-label>
+    <ion-input type="email" clearInput></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-input placeholder="Password" type="password" clearInput></ion-input>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" clearInput></ion-input>
   </ion-item>
-  <button ion-button full color="light" (click)="auth()">Log in</button>
+  <button ion-button block color="light" (click)="auth()">Log in</button>
+
+
+  <div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
 </ion-content>

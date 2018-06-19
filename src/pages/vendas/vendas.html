@@ -4,14 +4,60 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+
+  <div class="col-lg-3 col-xs-3 col-sm-3">
+    <div class="small-box bg-green">
+      <div class="inner">
+        <span class="small-box-text">R$ </span>
+        <span class="small-box-text" id="numFirstBox">411.903</span>
+        <p class="small-box-text" id="textFirstBox">Faturamento Mensal</p>
+      </div>
+      <div class="icon">
+        <ion-icon name="cash"></ion-icon>
+        <!--<i class="material-icons md-48">attach_money</i>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-xs-3 col-sm-3">
+    <div class="small-box bg-blue">
+      <div class="inner">
+        <span class="small-box-text">R$ </span>
+        <span class="small-box-text" id="numSecondBox">2.128.165</span>
+        <p class="small-box-text" id="textSecondBox">Faturamento - Projeção do Mês</p>
+      </div>
+      <div class="icon">
+          <ion-icon name="ios-podium-outline"></ion-icon>
+          <!--<i class="material-icons md-48">insert_chart</i>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-xs-3 col-sm-3">
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <span class="small-box-text" id="numThirdBox">655</span>
+          <p class="small-box-text" id="textThirdBox">Clientes Positivados</p>
+        </div>
+        <div class="icon">
+            <ion-icon name="ios-people-outline"></ion-icon>
+            <!--<i class="material-icons md-48">face</i>-->
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-3 col-xs-3 col-sm-3">
+        <div class="small-box bg-red">
+          <div class="inner">
+            <span class="small-box-text" id="numFourthBox">1866</span>
+            <p class="small-box-text" id="textFourthBox">Produtos Positivados</p>
+          </div>
+          <div class="icon">
+              <ion-icon name="md-arrow-round-up"></ion-icon>
+              <!--<i class="material-icons md-48">arrow_upward</i>-->
+          </div>
+        </div>
+      </div>
+
 </ion-content>

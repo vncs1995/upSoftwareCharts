@@ -7,8 +7,10 @@ import { NavController } from 'ionic-angular';
 })
 export class DadosPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) { }
 
-  }
+  public doughnutChartLabels:string[] = ['Me', 'Myself', 'and I'];
+  public doughnutChartData:number[] = [123, 456, 789];
+  public doughnutChartType:string = 'doughnut';
 
 }
