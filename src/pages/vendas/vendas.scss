@@ -3,6 +3,7 @@ page-vendas {
         border-radius: 5px;
         position: relative;
         display: block;
+        margin-top: 10px;
         margin-bottom: 20px;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
         margin-left: 5px;
@@ -34,7 +35,7 @@ page-vendas {
         -o-transition: all 0.3s linear;
         transition: all 0.3s linear;
         position: absolute;
-        top: -10px;
+        top: -5px;
         right: 10px;
         z-index: 0;
         font-size: 65px;
@@ -46,7 +47,7 @@ page-vendas {
         display: block;
         color: #f9f9f9;
         font-size: 13px;
-        margin-top: 5px;
+        margin-top: 10px;
     }
 
     .small-box .small-box-text {
