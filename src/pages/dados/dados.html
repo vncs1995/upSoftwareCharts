@@ -7,15 +7,26 @@
 </ion-header>
 
 <ion-content>
+  
+  <div class="main-content">
+  <ion-icon name="ios-people"></ion-icon>
+  <p ion-text color="primary" class="box-title legend-grey" id="captionTitleDonut">Percentual de representatividade por vendedor (%)</p>
+  <p class="legend-grey subtitle" id="captionPeriodDonut">(últimos 3 meses)</p>
 
-    <div style="display: block">
-        <canvas baseChart
-        [data]='doughnutChartData'
-        [labels]='doughnutChartLabels'
-        [chartType]='doughnutChartType'
-        >
-    
-        </canvas>
-      </div>
+  <div style="display:block">
+    <canvas baseChart [data]='doughnutChartData' [labels]='doughnutChartLabels' [chartType]='doughnutChartType'></canvas>
+  </div>
+
+</div>
+
+<div class="subsection-content">
+  <ion-icon name="ios-list-outline"></ion-icon>
+  <p ion-text color="primary" class="box-title legend-grey" id="captionTitleDonut">Ranking - Percentual de representatividade (%)</p>
+  <p class="legend-grey subtitle" id="captionPeriodDonut">(últimos 3 meses)</p>
+</div>
+
+<div class="modais">
+
+</div>
 
 </ion-content>
