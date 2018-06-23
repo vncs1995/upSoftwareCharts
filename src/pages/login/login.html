@@ -16,17 +16,13 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Email</ion-label>
-    <ion-input type="email" clearInput></ion-input>
+    <ion-input type="email" clearInput #username></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Password</ion-label>
-    <ion-input type="password" clearInput></ion-input>
+    <ion-input type="password" clearInput #password></ion-input>
   </ion-item>
   <button ion-button block color="light" (click)="auth()">Log in</button>
 
-
-  <div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
-  </div>
 </ion-content>
