@@ -8,6 +8,7 @@ import { DadosPage } from '../pages/dados/dados';
 import { VendasPage } from '../pages/vendas/vendas';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ModalPage } from '../pages/modal/modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,8 @@ import {ChartsModule} from 'ng2-charts';
     DadosPage,
     VendasPage,
     LoginPage,
-    TabsPage
+    TabsPage,
+    ModalPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {ChartsModule} from 'ng2-charts';
     DashBoardPage,
     DadosPage,
     VendasPage,
-    TabsPage
+    TabsPage,
+    ModalPage
   ],
   providers: [
     StatusBar,
