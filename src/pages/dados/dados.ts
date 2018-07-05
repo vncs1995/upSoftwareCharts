@@ -2,22 +2,19 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
+import { DadosDashVendedorProvider } from '../../providers/dados-dash-vendedor/dados-dash-vendedor';
 
 @Component({
   selector: 'page-dados',
   templateUrl: 'dados.html'
 })
 export class DadosPage {
-  private charData : any;
-
   public doughnutChartLabels: string[];
   public doughnutChartData: number[];
   public doughnutChartType: string = 'pie';
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) { 
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dadosDashVendedorProvider: DadosDashVendedorProvider) {
     this.getDataFromAPI();
-    this.doughnutChartLabels = this.getLabels();
-    this.doughnutChartData = this.getCharData();
   }
 
   presentProfileModal(modalToOpen: string) {
@@ -25,26 +22,36 @@ export class DadosPage {
     profileModal.present();
   }
 
-  getDataFromAPI(){
-    this.charData = { "VendaPesoCusto": [ { "DESCRICAO": "JULIANO LOCHETI", "VALOR": 81.35, "TIPO": 5 }, { "DESCRICAO": "DIEGO H TRAJANO", "VALOR": 10.75, "TIPO": 5 }, { "DESCRICAO": "ANDREIA FERRAZ ZAMBELLI", "VALOR": 6.40, "TIPO": 5 }, { "DESCRICAO": "NELSON SETARO JUNIOR", "VALOR": 0.76, "TIPO": 5 }, { "DESCRICAO": "LUANA", "VALOR": 0.73, "TIPO": 5 } ] }
+  getDataFromAPI() {
+    this.dadosDashVendedorProvider.getData()
+      .then((apiResponse) => {
+        return Promise.all([this.getLabels(apiResponse), this.getChartData(apiResponse)])
+      })
+      .then((response) => {
+        this.doughnutChartLabels = response[0];
+        this.doughnutChartData = response[1];
+      })
+      .catch((err) => { alert(JSON.stringify(err)) })
   }
 
-  getLabels(){
+  getLabels(res) {
     let labels = []
-    this.charData.VendaPesoCusto.forEach(element => {
-      labels.push(element.DESCRICAO)
-    });
 
-    return labels;
+    for (let i = 0; i < res.length; i++) {
+      labels.push(res[i].DESCRICAO)
+    }
+
+    return Promise.resolve(labels)
   }
 
-  getCharData(){
+  getChartData(res) {
     let data = []
-    this.charData.VendaPesoCusto.forEach(element => {
-      data.push(element.VALOR)
-    });
 
-    return data;
+    for (let i = 0; i < res.length; i++) {
+      data.push(res[i].VALOR)
+    }
+
+    return Promise.resolve(data);
   }
 
 }
