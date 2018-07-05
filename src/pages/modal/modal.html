@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar class="toolbar-header">
       <ion-title>
         {{header}}
       </ion-title>
@@ -23,16 +23,7 @@
 <ion-content padding>
   <div class="main-content">
     <div style="display:block">
-      <canvas baseChart [data]='pieChartData' [labels]='pieChartLabels' [chartType]='pieChartType'></canvas>
-    </div>
-    <div style="display:block">
-      <canvas baseChart [data]='pieChartData' [labels]='pieChartLabels' [chartType]='pieChartType'></canvas>
-    </div>
-    <div style="display:block">
-      <canvas baseChart [data]='pieChartData' [labels]='pieChartLabels' [chartType]='pieChartType'></canvas>
-    </div>
-    <div style="display:block">
-      <canvas baseChart [data]='pieChartData' [labels]='pieChartLabels' [chartType]='pieChartType'></canvas>
+      <canvas baseChart [data]='pieChartData' [chartType]='pieChartType'></canvas>
     </div>
   </div>
 </ion-content>

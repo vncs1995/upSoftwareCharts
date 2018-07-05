@@ -4,14 +4,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
+<ion-content *ngIf="dataReceived">
 
   <div class="col-lg-3 col-xs-3 col-sm-3">
     <div class="small-box bg-green">
       <div class="inner">
         <span class="small-box-text">R$ </span>
-        <span class="small-box-text" id="numFirstBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_1}}</span>
-        <p class="small-box-text" id="textFirstBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_1_CAPTION}}</p>
+        <span class="small-box-text" id="numFirstBox">{{dataReceived.SMALL_BOX_1}}</span>
+        <p class="small-box-text" id="textFirstBox">{{dataReceived.SMALL_BOX_1_CAPTION}}</p>
       </div>
       <div class="icon">
         <ion-icon name="cash"></ion-icon>
@@ -24,8 +24,8 @@
     <div class="small-box bg-blue">
       <div class="inner">
         <span class="small-box-text">R$ </span>
-        <span class="small-box-text" id="numSecondBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_2}}</span>
-        <p class="small-box-text" id="textSecondBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_2_CAPTION}}</p>
+        <span class="small-box-text" id="numSecondBox">{{dataReceived.SMALL_BOX_2}}</span>
+        <p class="small-box-text" id="textSecondBox">{{dataReceived.SMALL_BOX_2_CAPTION}}</p>
       </div>
       <div class="icon">
         <ion-icon name="ios-podium-outline"></ion-icon>
@@ -36,8 +36,8 @@
   <div class="col-lg-3 col-xs-3 col-sm-3">
     <div class="small-box bg-yellow">
       <div class="inner">
-        <span class="small-box-text" id="numThirdBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_3}}</span>
-        <p class="small-box-text" id="textThirdBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_3_CAPTION}}</p>
+        <span class="small-box-text" id="numThirdBox">{{dataReceived.SMALL_BOX_3}}</span>
+        <p class="small-box-text" id="textThirdBox">{{dataReceived.SMALL_BOX_3_CAPTION}}</p>
       </div>
       <div class="icon">
         <ion-icon name="ios-people-outline"></ion-icon>
@@ -48,8 +48,8 @@
   <div class="col-lg-3 col-xs-3 col-sm-3">
     <div class="small-box bg-red">
       <div class="inner">
-        <span class="small-box-text" id="numFourthBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_4}}</span>
-        <p class="small-box-text" id="textFourthBox">{{dataReceived.VendaPesoCusto[0].SMALL_BOX_4_CAPTION}}</p>
+        <span class="small-box-text" id="numFourthBox">{{dataReceived.SMALL_BOX_4}}</span>
+        <p class="small-box-text" id="textFourthBox">{{dataReceived.SMALL_BOX_4_CAPTION}}</p>
       </div>
       <div class="icon">
         <ion-icon name="md-arrow-round-up"></ion-icon>

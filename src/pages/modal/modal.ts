@@ -25,6 +25,40 @@ export class ModalPage {
     this.header = this.params.get('header');
   }
 
+  getChartDataClienteFromAPI(){
+    let gotFromAPI = {"DadosDashGenerico":[{"DESCRICAO":"UPSOFTWARE ","TIPO":"4","VALOR":"81.93"},{"DESCRICAO":"FAESPO EIRELI","TIPO":"4","VALOR":"1.89"},{"DESCRICAO":"ATTIMINO ","TIPO":"4","VALOR":"1.37"},{"DESCRICAO":"A. G. RUBBO SJBV","TIPO":"4","VALOR":"1.33"},{"DESCRICAO":"ME.LINDA - JUNDIAI SHOPPING","TIPO":"4","VALOR":"1.33"}]};
+  }
+
+  getChartDataFabricanteFromAPI(){
+    let gotFromAPI = {"DadosDashGenerico":{"DESCRICAO":"UPSOFTWARE","TIPO":"3","VALOR":"100.00"}};
+  }
+
+  getChartDataProdutoFromAPI(){
+    let gotFromAPI = {"DadosDashGenerico":[{"DESCRICAO":"SERV SUPORTE MENSAL","TIPO":"2","VALOR":"81.93"},{"DESCRICAO":"HORAS DE CUSTOMIZACAO","TIPO":"2","VALOR":"2.31"},{"DESCRICAO":"LC ERP - AQUISICAO","TIPO":"2","VALOR":"2.28"},{"DESCRICAO":"LC AFV-ANDROID - ADICIONAL","TIPO":"2","VALOR":"1.64"},{"DESCRICAO":"WKD (DIA DE TRABALHO 6 HORAS)","TIPO":"2","VALOR":"1.53"}]}
+  }
+
+  getLabels(){
+
+  }
+
+  getData(){
+    
+  }
+
+  chooseChart(){
+    switch(this.header){
+      case 'Produtos':
+      break;
+
+      case 'Fabricantes':
+      break;
+      
+      case 'Clientes':
+      break;
+      
+    }
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }

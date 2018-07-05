@@ -13,6 +13,13 @@ import { ModalPage } from '../pages/modal/modal';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ChartsModule} from 'ng2-charts';
+import { VendaPesoCustoProvider } from '../providers/venda-peso-custo/venda-peso-custo';
+import { DadosDashVendedorProvider } from '../providers/dados-dash-vendedor/dados-dash-vendedor';
+import { DadosDashProdutoProvider } from '../providers/dados-dash-produto/dados-dash-produto';
+import { DadosDashFabricanteProvider } from '../providers/dados-dash-fabricante/dados-dash-fabricante';
+import { DadosDashClienteProvider } from '../providers/dados-dash-cliente/dados-dash-cliente';
+import { DadosFaturamentoProvider } from '../providers/dados-faturamento/dados-faturamento';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +35,7 @@ import {ChartsModule} from 'ng2-charts';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
+    HttpClientModule
     
   ],
   bootstrap: [IonicApp],
@@ -43,7 +51,13 @@ import {ChartsModule} from 'ng2-charts';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    VendaPesoCustoProvider,
+    DadosDashVendedorProvider,
+    DadosDashProdutoProvider,
+    DadosDashFabricanteProvider,
+    DadosDashClienteProvider,
+    DadosFaturamentoProvider
   ]
 })
 export class AppModule {}
