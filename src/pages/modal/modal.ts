@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Platform } from 'ionic-angular';
-
+import { DadosDashClienteProvider } from '../../providers/dados-dash-cliente/dados-dash-cliente'
+import { DadosDashFabricanteProvider } from '../../providers/dados-dash-fabricante/dados-dash-fabricante'
+import { DadosDashProdutoProvider } from '../../providers/dados-dash-produto/dados-dash-produto'
 /**
  * Generated class for the ModalPage page.
  *
@@ -17,46 +19,60 @@ export class ModalPage {
 
   public header: string;
 
+  public chartHeader: string[];
   public pieChartLabels: string[] = ['positive', 'negative'];
-  public pieChartData: number[] = [82.69, 17.31];
+  public pieChartData: any;
   public pieChartType: string = 'pie';
 
-  constructor(public platform: Platform, public params: NavParams, public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public platform: Platform,
+    public params: NavParams,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public dadosDashClienteProvider: DadosDashClienteProvider,
+    public dadosDashFabricanteProvider: DadosDashFabricanteProvider,
+    public dadosDashProdutoProvider: DadosDashProdutoProvider) {
     this.header = this.params.get('header');
+    this.getChartDataFromAPI();
   }
 
-  getChartDataClienteFromAPI(){
-    let gotFromAPI = {"DadosDashGenerico":[{"DESCRICAO":"UPSOFTWARE ","TIPO":"4","VALOR":"81.93"},{"DESCRICAO":"FAESPO EIRELI","TIPO":"4","VALOR":"1.89"},{"DESCRICAO":"ATTIMINO ","TIPO":"4","VALOR":"1.37"},{"DESCRICAO":"A. G. RUBBO SJBV","TIPO":"4","VALOR":"1.33"},{"DESCRICAO":"ME.LINDA - JUNDIAI SHOPPING","TIPO":"4","VALOR":"1.33"}]};
-  }
-
-  getChartDataFabricanteFromAPI(){
-    let gotFromAPI = {"DadosDashGenerico":{"DESCRICAO":"UPSOFTWARE","TIPO":"3","VALOR":"100.00"}};
-  }
-
-  getChartDataProdutoFromAPI(){
-    let gotFromAPI = {"DadosDashGenerico":[{"DESCRICAO":"SERV SUPORTE MENSAL","TIPO":"2","VALOR":"81.93"},{"DESCRICAO":"HORAS DE CUSTOMIZACAO","TIPO":"2","VALOR":"2.31"},{"DESCRICAO":"LC ERP - AQUISICAO","TIPO":"2","VALOR":"2.28"},{"DESCRICAO":"LC AFV-ANDROID - ADICIONAL","TIPO":"2","VALOR":"1.64"},{"DESCRICAO":"WKD (DIA DE TRABALHO 6 HORAS)","TIPO":"2","VALOR":"1.53"}]}
-  }
-
-  getLabels(){
-
-  }
-
-  getData(){
-    
-  }
-
-  chooseChart(){
-    switch(this.header){
+  chooseChart() {
+    switch (this.header) {
       case 'Produtos':
-      break;
+        return this.dadosDashProdutoProvider.getData()
 
       case 'Fabricantes':
-      break;
-      
+        return this.dadosDashFabricanteProvider.getData()
+
       case 'Clientes':
-      break;
-      
+        return this.dadosDashClienteProvider.getData()
     }
+  }
+
+  getData(res) {
+    let data = []
+    
+    for (let i = 0; i < res.length; i++) {
+      let x = {
+        header: res[i].DESCRICAO,
+        chartData: [Number(res[i].VALOR).toFixed(2), Number(100 - res[i].VALOR).toFixed(2)]
+      }
+      data.push(x)
+    }
+
+    return Promise.resolve(data)
+  }
+
+  getChartDataFromAPI() {
+    this.chooseChart()
+      .then((apiResponse) => {
+        return this.getData(apiResponse)
+      })
+      .then((response) => {
+        this.pieChartData = response;
+      })
+      .catch((err) => { alert(JSON.stringify(err)) })
+
   }
 
   dismiss() {

@@ -8,14 +8,18 @@
 
 <ion-content padding>
 
-  <div style="display: block" *ngIf="lineChartData && lineChartLabels">
-    <canvas baseChart
-    [datasets]='lineChartData'
-    [labels]='lineChartLabels'
-    [chartType]='lineChartType'
-    >
+  <div class="main-content">
 
-    </canvas>
+    <p ion-text color="primary" class="box-title legend-grey" id="captionTitleDonut">
+      <ion-icon name="trending-up"></ion-icon> Análise de faturamento (%)
+      <br/> Venda x Peso x Custo por Mês / Ano
+    </p>
+    <p class="legend-grey subtitle" id="captionPeriodDonut">(últimos 12 meses)</p>
+
+    <div style="display: block" *ngIf="lineChartData && lineChartLabels">
+      <canvas baseChart [datasets]='lineChartData' [labels]='lineChartLabels' [chartType]='lineChartType'>
+
+      </canvas>
+    </div>
   </div>
-
 </ion-content>

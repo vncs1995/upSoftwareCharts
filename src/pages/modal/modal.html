@@ -12,8 +12,7 @@
       </ion-title>
       <ion-buttons start>
         <button ion-button (click)="dismiss()">
-          <span ion-text color="primary" showWhen="ios">Cancel</span>
-          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+          <ion-icon name="close"></ion-icon>
         </button>
       </ion-buttons>
     </ion-toolbar>
@@ -21,9 +20,10 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="main-content">
+  <div class="main-content" *ngFor="let data of pieChartData">
     <div style="display:block">
-      <canvas baseChart [data]='pieChartData' [chartType]='pieChartType'></canvas>
+      <p class="modal-chart-header">{{data.header}}</p>
+      <canvas baseChart [data]='data.chartData' [labels]="data.chartData" [chartType]='pieChartType'></canvas>
     </div>
   </div>
 </ion-content>
